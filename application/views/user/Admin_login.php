@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text],input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body background="" style="background-repeat: no-repeat;"  onload='document.form1.email.focus()'>
+
+<center><h1 style="margin-top:30px;color: #803E2C;text-transform: uppercase;margin-left: 96px">Admin Login here</h1></center>
+
+<div style="margin-left: 400px;width: 553px;margin-top: 50px;">
+  <form style="text-transform: uppercase;" method="POST" name="form1" action="<?php echo base_url('index.php/Admin_controller/login_insert')?>">
+  <!--  <p style="font-size: 27px"><label style="margin-left: 142px;color: #803E2C"><a style="text-decoration-line: none;color: #803E2C" href="lawyer_login.php">lawyers</a></label> | <label  style="text-decoration-line: none;color: #803E2C"><a style="text-decoration-line: none;color: #803E2C" href="login.php">users</a></label></p> -->
+  <br>
+    <label for="lname">Enter your email</label>
+    <input type="email" style="width: 100%;
+    padding: 12px 20px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;
+    border-radius: 4px;box-sizing: border-box;" required="required" id="lname" name="email" placeholder="Enter your email..">
+    <label for="lname">Enter your password</label>
+    <input type="password" id="lname" name="password" placeholder="Enter your password.." required="required">
+   
+    <input type="submit" style="background-color:#803E2C" value="Login here" name="submit"  onclick="ValidateEmail(document.form1.email)">
+    <a href="<?php echo base_url('index.php/Admin_controller/index')?>"><center>
+      <img style="height: 60px;width: 60px;" src="<?php echo base_url('Asset/user/images/home.jpg')?>"></a></center>
+  </form>
+  <br><br>
+
+  <center><p  style="    text-transform: uppercase;
+    margin-left: -24px;
+    color: #803E2C;
+"></p></center>
+</div>
+<br><br><br><br>
+</body>
+</html>
+
+<script type="text/javascript">
+  function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+document.form1.email.focus();
+return true;
+}
+else
+{
+alert("Please enter email format!");
+document.form1.email.focus();
+return false;
+}
+}
+</script>
